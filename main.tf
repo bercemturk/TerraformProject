@@ -73,7 +73,7 @@ resource "azurerm_network_interface" "Team2" {
   ip_configuration {
     name                          = "testconfiguration1"
     subnet_id                     = azurerm_subnet.internal.id
-    private_ip_address_allocation = "Dynamic"
+    private_ip_address_allocation = "Dynamic'
   
   }
 
@@ -118,4 +118,6 @@ resource "azurerm_virtual_machine" "Team2" {
         costcenter  = "it"
   }
   depends_on = [azurerm_resource_group.Team2]
+ }
+  
  }
