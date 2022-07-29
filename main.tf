@@ -23,7 +23,7 @@ module "vnet" {
 resource "azurerm_network_security_group" "Team2" {
   name                = "Team2-security-group"
   location            = azurerm_resource_group.Team2.location
-  resource_group_name = azurerm_resource_group.example.name
+  resource_group_name = azurerm_resource_group.Team2.name
 }
 # module "vnet" {
 #   source              = "Azure/vnet/azurerm"
@@ -101,9 +101,8 @@ resource "azurerm_virtual_machine" "Team2" {
   storage_os_disk {
     name              = "myosdisk1"
     caching           = "ReadWrite"
-    create_option     = "FromImage'
+    create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
-    delete_os_disk_on_termination  = true
   }
   os_profile {
     computer_name  = "hostname"
