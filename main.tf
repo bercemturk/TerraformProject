@@ -87,7 +87,7 @@ resource "azurerm_virtual_machine" "Team2" {
   vm_size               = "Standard_B1s"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
-  # delete_os_disk_on_termination = true
+  delete_os_disk_on_termination = true
 
 
   storage_image_reference {
