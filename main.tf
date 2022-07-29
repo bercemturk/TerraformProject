@@ -23,7 +23,7 @@ module "vnet" {
 resource "azurerm_network_security_group" "Team2" {
   name                = "Team2-security-group"
   location            = azurerm_resource_group.Team2.location
-  resource_group_name = azurerm_resource_group.Team2.name
+  resource_group_name = azurerm_resource_group.example.name
 }
 # module "vnet" {
 #   source              = "Azure/vnet/azurerm"
@@ -96,7 +96,7 @@ resource "azurerm_virtual_machine" "Team2" {
     publisher = "OpenLogic"
     offer     = "CentOS"
     sku       = "7.5"
-    version   = "latest"
+    version   = "latest
   }
   storage_os_disk {
     name              = "myosdisk1"
