@@ -23,7 +23,6 @@ resource "azurerm_network_security_group" "team2" {
   }
   tags = var.tags
 }
-# Create Virtual Network with 3 public subnets
 resource "azurerm_virtual_network" "team2" {
   name                = var.vnet_name
   location            = azurerm_resource_group.team2.location
@@ -50,7 +49,6 @@ resource "azurerm_virtual_network" "team2" {
   tags = var.tags
 }
 
-# Create route tables
 resource "azurerm_route_table" "team2" {
   name                          = "team2-route-table"
   location                      = azurerm_resource_group.team2.location
