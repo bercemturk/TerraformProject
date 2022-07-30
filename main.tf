@@ -2,9 +2,10 @@ locals {
   first_public_key = file("~/.ssh/id_rsa.pub")
 }
 
+
 resource "azurerm_resource_group" "Team2" {
-  name     = "my-resources"
-  location = "East US"
+  name     = "Team2-resources"
+  location = "West Europe"
 }
 
 resource "azurerm_virtual_network" "Team2" {
@@ -18,16 +19,15 @@ resource "azurerm_subnet" "internal" {
   name                 = "internal"
   resource_group_name  = azurerm_resource_group.Team2.name
   virtual_network_name = azurerm_virtual_network.Team2.name
-  address_prefixes     = ["10.0.1.0/24"]
+  address_prefixes     = ["10.0.2.0/24"]
 }
-
 
 resource "azurerm_linux_virtual_machine_scale_set" "Team2" {
   name                = "Team2-vmss"
   resource_group_name = azurerm_resource_group.Team2.name
   location            = azurerm_resource_group.Team2.location
   sku                 = "Standard_F2"
-  instances           = 3           #you can put only up to 5 
+  instances           = 3 #you can put up to 5 
   admin_username      = "adminuser"
 
   admin_ssh_key {
@@ -45,10 +45,9 @@ resource "azurerm_linux_virtual_machine_scale_set" "Team2" {
   os_disk {
     storage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
+
   }
-
-
-
+  
   network_interface {
     name    = "Team2"
     primary = true
@@ -58,4 +57,5 @@ resource "azurerm_linux_virtual_machine_scale_set" "Team2" {
       primary   = true
       subnet_id = azurerm_subnet.internal.id
     }
-  
+  }
+}
