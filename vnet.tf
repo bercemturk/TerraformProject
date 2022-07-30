@@ -50,6 +50,7 @@ resource "azurerm_virtual_network" "team2" {
   tags = var.tags
 }
 
+# Create route tables
 resource "azurerm_route_table" "team2" {
   name                          = "team2-route-table"
   location                      = azurerm_resource_group.team2.location
