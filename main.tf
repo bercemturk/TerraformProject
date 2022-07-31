@@ -29,7 +29,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "Team2" {
   resource_group_name = azurerm_resource_group.Team2.name
   location            = azurerm_resource_group.Team2.location
   sku                 = "Standard_F2"
-  instances           = 3 
+  instances           = 3  # if your account new plz enter 1
   admin_username      = "adminuser"
 
   admin_ssh_key {
