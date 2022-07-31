@@ -85,4 +85,4 @@ resource "azurerm_mysql_server" "Team2" {
   ssl_enforcement_enabled           = true
   ssl_minimal_tls_version_enforced  = "TLS1_2"
 }
-}
+
