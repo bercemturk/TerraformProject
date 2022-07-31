@@ -1,4 +1,4 @@
-# Team2 07/26/2022  @ Devopscyber
+# Team2 07/26/2022  
 Team members:
 Bercem Turk
 Alex Tsiasto
@@ -43,6 +43,7 @@ All the stacks are placed in the modules folder and the variable are stored unde
 To run the code you need to append the variables in the terraform.tfvars
 Each module consists minimum two files: main.tf, vars.tf
 resourcegroup and networking modules consists of one extra file named output.tf
+
 
 ### Deployment
 
