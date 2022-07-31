@@ -17,6 +17,24 @@ resource "azurerm_virtual_network" "Team2" {
   address_space       = ["10.0.0.0/16"]
 }
 
+resource "azurerm_network_security_group" "Team" {
+  name                = "ssh"
+  resource_group_name = azurerm_resource_group.Team.name
+  location            = azurerm_resource_group.Team.location
+
+  security_rule {
+    name                       = "open port"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "3306"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+
 resource "azurerm_subnet" "internal" {
   name                 = "internal"
   resource_group_name  = azurerm_resource_group.Team2.name
