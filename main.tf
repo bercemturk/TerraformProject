@@ -1,4 +1,5 @@
-
+                  #####################################################################################################################
+                  #####################################################################################################################
 locals {
   first_public_key = file("~/.ssh/id_rsa.pub")
 }
@@ -61,31 +62,8 @@ resource "azurerm_linux_virtual_machine_scale_set" "Team2" {
   }
 }
 
-# resource "random_string" "Team2" {
-#   length           = 14
-#   special          = false
-#   override_special = "/@£$"
-#   upper            = false
-# }
 
-# resource "azurerm_mysql_server" "Team2" {
-#   name                              = "Team2-mysqlserver-2-${random_string.Team2.result}"
-#   location                          = azurerm_resource_group.Team2.location
-#   resource_group_name               = azurerm_resource_group.Team2.name
-#   administrator_login               = "mysqladminun"
-#   administrator_login_password      = "H@Sh1CoR3!"
-#   sku_name                          = "B_Gen5_2"
-#   storage_mb                        = 5120
-#   version                           = "5.7"
-#   auto_grow_enabled                 = true
-#   backup_retention_days             = 7
-#   geo_redundant_backup_enabled      = false
-#   infrastructure_encryption_enabled = false
-#   public_network_access_enabled     = true
-#   ssl_enforcement_enabled           = false
-# }
-
-
+### Installing MySQL server
 
 resource "azurerm_mysql_server" "Team2" {
   name                = "team2-mysqlserver"
@@ -107,3 +85,5 @@ resource "azurerm_mysql_server" "Team2" {
   ssl_enforcement_enabled           = true
   ssl_minimal_tls_version_enforced  = "TLS1_2"
 }
+
+
