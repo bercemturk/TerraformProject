@@ -71,7 +71,7 @@ resource "azurerm_mysql_server" "Team2" {
   resource_group_name = azurerm_resource_group.Team2.name
 
   administrator_login          = "mysqladminun"
-  administrator_login_password = "team2pass"
+  administrator_login_password = "H@Sh1CoR3!"
 
   sku_name   = "B_Gen5_2"
   storage_mb = 5120
