@@ -7,7 +7,7 @@ locals {
 
 resource "azurerm_resource_group" "Team2" {
   name     = "Team2-resources"
-  location = "West Europe"
+  location = "East US"
 }
 
 resource "azurerm_virtual_network" "Team2" {
